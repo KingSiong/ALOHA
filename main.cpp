@@ -1,4 +1,7 @@
 #include <iostream>
+#include "Client.h"
+#include "Server.h"
+
 
 // establish the server. 
 void server_establish() {
@@ -32,5 +35,12 @@ void send_package() {
 
 
 int main(int argc, char **argv) {
+    //创建服务端和客户端
+    Server server=Server();
+    Client client=Client();
+    //客户端发送消息
+    client.sendPacket("xvmao","hello,world!");
+    client.sendPacket("jingsong","hello,world!");
+    client.sendPacket("sunlu","hello,world!");
     return 0;
 }
