@@ -20,6 +20,7 @@ private:
 public:
     Server(int domain = AF_INET, int type = SOCK_STREAM, int protocol = IPPROTO_TCP, 
         std::string s_addr = "127.0.0.1", int port = 1234);
+    void start();
     void stopServerRunning(int p); 
     ~Server();
 };

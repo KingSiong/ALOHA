@@ -7,11 +7,13 @@ Server::Server(int domain, int type, int protocol, std::string s_addr, int port)
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     addr.sin_port = htons(1234);
-    
+    bind(socket_descriptor, (struct sockaddr*)&addr, sizeof(addr));
+}
+
+void Server::start() {
     int reuse = 1;
     setsockopt(socket_descriptor, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof( reuse ) );//设置端口复用
 
-    bind(socket_descriptor, (struct sockaddr*)&addr, sizeof(addr));
     const int MAXLINK=5;//规定了内核应为相应套接字排队的最大连接个数
     listen(socket_descriptor,MAXLINK);
 
@@ -78,9 +80,9 @@ Server::Server(int domain, int type, int protocol, std::string s_addr, int port)
 }
 
 void Server::stopServerRunning(int p){
-     close(socket_descriptor);
-     printf("Close Server\n");
-     exit(0);
+    close(socket_descriptor);
+    printf("Close Server\n");
+    exit(0);
 }
 
 Server::~Server() {}
