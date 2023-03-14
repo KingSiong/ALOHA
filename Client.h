@@ -1,6 +1,7 @@
 #ifndef _CLIENT_H_
 #define _CLIENT_H_
 
+#include <iostream>
 #include <sys/socket.h>
  #include <sys/types.h>
 #include <netinet/in.h>

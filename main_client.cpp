@@ -6,8 +6,11 @@ int main(int argc, char **argv) {
     Client client=Client();
     //客户端发送消息
     client.sendPacket("xvmao","hello,world!");
+    // sleep(10);
     client.sendPacket("jingsong","hello,world!");
+    // sleep(10);
     client.sendPacket("sunlu","hello,world!");
+    // sleep(10);
 
     while(1);//等待服务端接收信息
     return 0;
